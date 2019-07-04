@@ -1,9 +1,11 @@
 module.exports = {
   dialect: 'postgres',
   host: 'localhost',
+  port: '5433',
   username: 'postgres',
   password: 'docker',
-  database: 'gomaker',
+  database: 'hackdb',
+
   define: {
     timestamps: true,
     underscored: true,
