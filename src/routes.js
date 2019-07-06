@@ -3,7 +3,7 @@ import { Router } from 'express';
 import UserController from './app/controller/UserController';
 import SessionsController from './app/controller/SessionController';
 
-import authMiddleware from './app/middlewares/Auth';
+import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 routes.post('/users', UserController.store);
