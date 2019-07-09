@@ -34,7 +34,14 @@ class UserController {
     if (!(await user.checkPassword(oldPassword))) {
       return res.status(401).json({ error: 'senha antiga não errada' });
     }
-    return res.json({ ok: true });
+    const { id, name, provider } = await user.update(req.body);
+
+    return res.json({
+      id,
+      name,
+      email,
+      provider,
+    });
   }
 }
 
