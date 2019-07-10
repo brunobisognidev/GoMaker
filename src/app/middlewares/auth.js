@@ -9,11 +9,11 @@ export default async (req, res, next) => {
   if (!authHeader) {
     return res.status(401).json({ error: 'Token não Aceito' });
   }
-
+  console.log(authHeader);
   const [, Token] = authHeader.split(' ');
 
   try {
-    const decoded = await promisify(jwt.verfity)(Token, authConfig.secret);
+    const decoded = await promisify(jwt.verify)(Token, authConfig.secret);
 
     req.userId = decoded.id;
 
