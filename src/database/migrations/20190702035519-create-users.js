@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('files', {
+    return queryInterface.createTable('users', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -11,7 +11,12 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      path: {
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      password_hash: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
