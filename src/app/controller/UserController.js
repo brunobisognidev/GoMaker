@@ -10,7 +10,7 @@ class UserController {
         .required(),
       password: Yup.string()
         .required()
-        .min(8),
+        .min(6),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -39,9 +39,9 @@ class UserController {
       email: Yup.string()
         .email()
         .required(),
-      oldPassword: Yup.string().min(8),
+      oldPassword: Yup.string().min(6),
       password: Yup.string()
-        .min(8)
+        .min(6)
         .when('oldPassword', (oldPassword, field) =>
           oldPassword ? field.required() : field
         ),

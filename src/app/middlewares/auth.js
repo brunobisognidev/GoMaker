@@ -9,7 +9,7 @@ export default async (req, res, next) => {
   if (!authHeader) {
     return res.status(401).json({ error: 'Token não Aceito' });
   }
-  console.log(authHeader);
+
   const [, Token] = authHeader.split(' ');
 
   try {
