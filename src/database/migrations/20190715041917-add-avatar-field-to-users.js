@@ -8,7 +8,7 @@ module.exports = {
 
       {
         type: Sequelize.INTEGER,
-        refences: { model: 'files', key: 'id' },
+        references: { model: 'files', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
