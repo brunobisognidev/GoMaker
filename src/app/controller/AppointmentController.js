@@ -15,18 +15,18 @@ class AppointmentController {
 
     const { provider_id, date } = req.body;
 
-    const isProvider = await User.findOne({
+    const checkIsProvider = await User.findOne({
       where: { id: provider_id, provider: true },
     });
 
-    if (!isProvider) {
-      return res
-        .status(401)
-        .json({ error: 'você apenas pode marcar horário com prestadores' });
+    if (!checkIsProvider) {
+      return res.status(401).json({
+        error: 'Você só pode fazer um agendamento com um prestador de serviço',
+      });
     }
 
     const appointment = await Appointment.create({
-      user_id: req.user_id,
+      user_id: req.user.Id,
       provider_id,
       date,
     });
